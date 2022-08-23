@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\Nft;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNftsTable extends Migration
+class CreateNftPurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +15,10 @@ class CreateNftsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nfts', function (Blueprint $table) {
+        Schema::create('nft_purchases', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'original_owner_id');
-            $table->string('name');
-            $table->float('price');
-            $table->string('image_url');
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Nft::class);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateNftsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nfts');
+        Schema::dropIfExists('nft_purchases');
     }
 }
