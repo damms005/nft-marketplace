@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "137436a460536dd27f22503d8c4ed375",
+    "content-hash": "df05e41c2768d6304bfdca6509269c48",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -215,16 +215,16 @@
         },
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "57a7c41e1e79e38aed029d3e6ae690b04344c99e"
+                "reference": "efa53eb8bfc674306a02304eb6186adb078c8815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/57a7c41e1e79e38aed029d3e6ae690b04344c99e",
-                "reference": "57a7c41e1e79e38aed029d3e6ae690b04344c99e",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/efa53eb8bfc674306a02304eb6186adb078c8815",
+                "reference": "efa53eb8bfc674306a02304eb6186adb078c8815",
                 "shasum": ""
             },
             "require": {
@@ -292,7 +292,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-11T12:38:11+00:00"
+            "time": "2022-08-24T13:35:42+00:00"
         },
         {
             "name": "brick/math",
@@ -2179,6 +2179,76 @@
                 }
             ],
             "time": "2022-08-08T13:52:53+00:00"
+        },
+        {
+            "name": "mckenziearts/laravel-notify",
+            "version": "3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/damms005/laravel-notify.git",
+                "reference": "63a3eab0355c5ad2d9618ebfcbf3eb2a550ff3bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/damms005/laravel-notify/zipball/63a3eab0355c5ad2d9618ebfcbf3eb2a550ff3bf",
+                "reference": "63a3eab0355c5ad2d9618ebfcbf3eb2a550ff3bf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~7.0|~8.0|~9.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mckenziearts\\Notify\\LaravelNotifyServiceProvider"
+                    ],
+                    "aliases": {
+                        "Notify": "Mckenziearts\\Notify\\Facades\\LaravelNotify"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mckenziearts\\Notify\\": "src/"
+                },
+                "files": [
+                    "./src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur Monney",
+                    "email": "monneylobe@gmail.com",
+                    "homepage": "https://twitter.com/MonneyArthur",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Flexible flash notifications for Laravel",
+            "homepage": "https://github.com/mckenziearts/laravel-notify",
+            "keywords": [
+                "Laravel",
+                "laravel-notify",
+                "notification"
+            ],
+            "support": {
+                "source": "https://github.com/damms005/laravel-notify/tree/3.1"
+            },
+            "funding": [
+                {
+                    "type": "custom",
+                    "url": "https://paypal.me/jvquilichini?locale.x=fr_FR"
+                }
+            ],
+            "time": "2022-08-24T15:33:47+00:00"
         },
         {
             "name": "monolog/monolog",

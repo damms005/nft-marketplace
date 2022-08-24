@@ -13,6 +13,7 @@ services:
         ports:
             - '${APP_PORT:-80}:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+            - '${WEBSOCKET_PORT:-6001}:6001'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
@@ -20,6 +21,7 @@ services:
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
             - '.:/var/www/html'
+            - '/home/damms005/Documents/packages/php/laravel-notify:/var/www/html/vendor/mckenziearts/laravel-notify'
         networks:
             - sail
         depends_on:

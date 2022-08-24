@@ -4,6 +4,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./vendor/mckenziearts/laravel-notify/resources/views/**/*.blade.php",
     ],
     theme: {
         extend: {},
