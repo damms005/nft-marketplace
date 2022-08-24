@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Salfade\LoginTracker\Models\LoginAttempt;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Salfade\LoginTracker\Traits\HasLoginAttempts;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -53,5 +55,10 @@ class User extends Authenticatable
     public function nfts(): HasMany
     {
         return $this->hasMany(Nft::class);
+    }
+
+    public function mostRecentLoginAttempt(): HasOne
+    {
+        return $this->hasOne(LoginAttempt::class)->latestOfMany();
     }
 }

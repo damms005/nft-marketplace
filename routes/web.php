@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomepageController::class);
+Route::get('/login', LoginController::class)->name('login');
+Route::get('/logout', LogoutController::class)->name('logout');
+
+Route::get('/', HomepageController::class)->name('homepage');

@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Nft;
 use App\Models\User;
-use Carbon\Carbon;
-use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -33,14 +31,14 @@ class DatabaseSeeder extends Seeder
 
         // Create users and give them NFTs for free
         User::factory()
-            ->count(10)
+            ->count(5)
             ->create()
             ->each(
                 fn (User $user) => Nft::factory()
                     ->count(rand(2, 6))
                     ->for($user, 'originalOwner')
                     ->create([
-                        'image_url' => Arr::get($imagesUrls->random(), 'urls.small')
+                        'image_url' => Arr::get($imagesUrls->random(), 'urls.regular')
                     ])
             );
     }
