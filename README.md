@@ -23,6 +23,13 @@ npm i
 npm run dev
 ```
 
+- Setup your database
+```
+sail artisan migrate:fresh --seed
+```
+> Heads up: in your `.env` file, ensure to provide `UNSPLASH_CLIENT_ID`. You can easily get one [here](https://unsplash.com/oauth/applications)
+
+
 - Rumble! (for me, this meant running `sail up -d`. YMMV)
 
 > **Note** <br />
