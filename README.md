@@ -1,6 +1,6 @@
 # A demo Laravel 9 NFT project
 
-> **Note**
+> **Note** <br />
 > The Laravel 8 version is [👉🏼 here](https://github.com/damms005/nft-marketplace)
 
 I needed an excuse to use a Laravel 9 Vite project that has event broadcasting via real-time updates through Laravel Echo with simple basic (custom) turn-based authentication. It simply flaunts Laravel Events broadcasting/Vite/Web Sockets/Payment Integration that you can spin-off! I also wanted to have a sample app that implements my [Laravel Multipay payments package](https://github.com/damms005/laravel-multipay).
