@@ -1,10 +1,19 @@
 <div class="text-sm relative h-72">
-  @if (auth()->id() != $nft->current_owner->id)
-    <button type="button"
-            class="absolute top-1 right-1 inline-flex items-center px-2.5 py-1 border text-xs font-medium rounded-full shadow-sm text-blue-500 bg-white hover:bg-gray-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400"
-            wire:click="buy({{ $nft->id }})">
-      buy
-    </button>
+  @if (auth()->user()->canBuy($nft))
+    <form method="POST" action="{{ route('payment.show_transaction_details_for_user_confirmation') }}">
+      @csrf
+      <input type='hidden' name='currency' value='NGN' />
+      <input type='hidden' name='amount' value='{{ $nft->price }}' />
+      <input type='hidden' name='user_id' value='{{ auth()->id() }}' />
+      <input type='hidden' name='transaction_description' value='Payment for NFT: {{ $nft->name }}' />
+      <input type='hidden' name='metadata' value='@json($nft->paymentMetadata())' />
+      <input type='hidden' name='payment_processor' value='Paystack' />
+
+      <button type="submit"
+              class="absolute top-1 right-1 inline-flex items-center px-2.5 py-1 border text-xs font-medium rounded-full shadow-sm text-blue-500 bg-white hover:bg-gray-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400">
+        buy
+      </button>
+    </form>
   @endif
 
   <div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75 h-full">
@@ -23,7 +32,9 @@
   </div>
 
   <script>
-    listenForPayments({{ auth()->id() }})
-    listenForNftPurchase({{ $nft->id }})
+    window.Echo.channel('nft-{{ $nft->id }}-purchase')
+      .listen('NftPurchase', (event) => {
+        window.toast(`New sale: ${event.nft.name}`)
+      });
   </script>
 </div>

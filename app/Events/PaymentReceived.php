@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Models\Nft;
+use App\Models\User;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -21,7 +21,7 @@ class PaymentReceived implements ShouldBroadcastNow
      * @return void
      */
     public function __construct(
-        public Nft $nft
+        public User $paidUser
     ) {
     }
 
@@ -32,6 +32,6 @@ class PaymentReceived implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel("user-{$this->user->id}-payment-received");
+        return new PrivateChannel("user-{$this->paidUser->id}-payment-received");
     }
 }

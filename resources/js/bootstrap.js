@@ -1,4 +1,6 @@
 import Echo from 'laravel-echo';
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 window.Pusher = require('pusher-js');
 
@@ -29,16 +31,20 @@ window.Echo = new Echo({
     wsPort: 6001,
 });
 
-window.listenForPayments = (userId) => {
+window.handlePaymentEvent = (userId, callback) => {
     window.Echo.private(`user-${userId}-payment-received`)
         .listen('PaymentReceived', (event) => {
-            console.log({ event });
+            callback(event)
         });
 }
 
-window.listenForNftPurchase = (nftId) => {
-    window.Echo.channel(`nft-${nftId}-purchase`)
-        .listen('NftPurchase', (event) => {
-            console.log({ event });
-        });
+window.toast = (message) => {
+    Toastify({
+        text: message,
+        position: "center",
+        duration: 10000,
+        close: true,
+        stopOnFocus: true,
+    }).showToast();
+
 }

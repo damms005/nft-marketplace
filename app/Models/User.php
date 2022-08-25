@@ -57,8 +57,23 @@ class User extends Authenticatable
         return $this->hasMany(Nft::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function nftPurchases(): HasMany
+    {
+        return $this->hasMany(NftPurchase::class);
+    }
+
     public function mostRecentLoginAttempt(): HasOne
     {
         return $this->hasOne(LoginAttempt::class)->latestOfMany();
+    }
+
+    public function canBuy(Nft $nft)
+    {
+        return $this->account_balance >= $nft->price
+            &&
+            $this->id != $nft->current_owner->id;
     }
 }
