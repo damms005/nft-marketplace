@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Salfade\LoginTracker\Models\LoginAttempt;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -14,7 +13,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
     use HasFactory;
     use Notifiable;
     use HasLoginAttempts;

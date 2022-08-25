@@ -46,5 +46,4 @@ window.toast = (message) => {
         close: true,
         stopOnFocus: true,
     }).showToast();
-
 }
