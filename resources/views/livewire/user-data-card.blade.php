@@ -8,9 +8,11 @@
   @endif
 
   <script>
-    // handlePaymentEvent({{ auth()->id() }}, (event) => {
-    //   window.toast('Payment received')
-    // })
+    addEventListener('load', () => {
+      window.handlePaymentEvent({{ auth()->id() }}, (event) => {
+        toast('Payment received')
+      })
+    })
   </script>
 
 </div>

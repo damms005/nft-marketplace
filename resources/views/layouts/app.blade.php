@@ -19,10 +19,12 @@
   @notifyJs
 
   <script>
-    // handlePaymentEvent({{ auth()->id() }}, (event) => {
-    //   console.log(event)
-    //   window.toast(JSON.stringify(event))
-    // })
+    addEventListener('load', () => {
+      handlePaymentEvent({{ auth()->id() }}, (event) => {
+        console.log(event)
+        toast(JSON.stringify(event))
+      })
+    })
   </script>
 
 </body>

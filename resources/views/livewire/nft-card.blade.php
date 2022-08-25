@@ -32,9 +32,11 @@
   </div>
 
   <script>
-    // window.Echo.channel('nft-{{ $nft->id }}-purchase')
-    //   .listen('NftPurchase', (event) => {
-    //     window.toast(`New sale: ${event.nft.name}`)
-    //   });
+    addEventListener('load', () => {
+      window.Echo.channel('nft-{{ $nft->id }}-purchase')
+        .listen('NftPurchase', (event) => {
+          toast(`New sale: ${event.nft.name}`)
+        })
+    })
   </script>
 </div>
