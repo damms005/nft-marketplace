@@ -38,5 +38,5 @@ sail artisan migrate:fresh --seed
 > **Note** <br />
 > If you want to test the included [payment package](https://github.com/damms005/laravel-multipay) with [Paystack](https://paystack.com), ensure you [setup it up as required](https://github.com/damms005/laravel-multipay#needed-third-party-integrations)
 
-> **Alert** <br />
+> **Warning** <br />
 > If you find anything missing in this guide, please don't @ me 😂
