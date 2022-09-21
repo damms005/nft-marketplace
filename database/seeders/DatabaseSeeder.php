@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         /** @var Collection */
-        $nfts = Cache::remember('nfts~1', now()->addMinute(10), function () {
+        $nfts = Cache::remember('nfts~3', now()->addMinute(10), function () {
             $response = Http::withHeaders(['Authorization' => 'Client-ID ' . env('UNSPLASH_CLIENT_ID')])
                 ->asJson()
                 ->get('https://api.unsplash.com/photos/random?orientation=portrait&collections=editorial,salt-life-for-me,bright%2C-white-%2B-light&count=30')

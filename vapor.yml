@@ -1,0 +1,14 @@
+id: 35334
+name: nft-marketplace-l9
+environments:
+    production:
+        memory: 1024
+        cli-memory: 512
+        runtime: 'php-8.1:al2'
+        database: nft-marketplace
+        cache: nft-marketplace-cache
+        build:
+            - 'composer install --no-dev'
+            - 'php artisan event:cache'
+        deploy:
+          - 'php artisan migrate:fresh --seed --force'
