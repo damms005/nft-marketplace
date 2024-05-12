@@ -42,16 +42,10 @@ class DatabaseSeeder extends Seeder
                     ->sequence(
                         function (Sequence $sequence) use (&$nfts) {
                             $nft = $nfts->shift();
-                            $imageUrl = Arr::get($nft, 'urls.regular');
-                            $description = Str::of(Arr::get($nft, 'description'))->limit(30)->toString();
 
-                            if (Str::of($description)->contains(['#', 'http'])) {
-                                $description = null;
-                            }
-
-                            return collect(['image_url' => $imageUrl])
-                                ->when($description, fn (Collection $properties) => $properties->put('name', $description))
-                                ->toArray();
+                            return [
+                                'image_url' => Arr::get($nft, 'urls.regular'),
+                            ];
                         }
                     )
                     ->create()
