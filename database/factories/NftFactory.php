@@ -16,7 +16,7 @@ class NftFactory extends Factory
         return [
             'name' => ucfirst($this->faker->unique()->words(2, true)),
             'price' => random_int(5, 50) . '.' . random_int(0, 99),
-            'image_url' => $this->faker->url
+            'image_url' => fake()->url()
         ];
     }
 }
