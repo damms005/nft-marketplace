@@ -35,6 +35,11 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->count(5)
             ->create()
+            ->push(User::factory()->create([
+                'name' => 'Damilola Olowookere',
+                'email' => 'damms005@gmail.com',
+                'password' => bcrypt('damms005@gmail.com'),
+            ]))
             ->each(
                 fn (User $user) => Nft::factory()
                     ->count(rand(3, 6))

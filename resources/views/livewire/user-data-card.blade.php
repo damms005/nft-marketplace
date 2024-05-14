@@ -2,9 +2,9 @@
   @if (auth()->check())
     {{ auth()->user()->name }}
     <span class="mx-1 bg-gray-200 text-sm py-1 px-2 rounded-lg"> ${{ Auth::user()->account_balance }}</span>
-    <a class="underline mx-2" href="{{ route('logout') }}">Logout</a>
+    <a class="underline mx-2" href="{{ route('filament.dashboard.auth.logout') }}">Logout</a>
   @else
-    <a class="underline" href="{{ route('login') }}">Login</a>
+    <a class="underline" href="{{ route('filament.dashboard.auth.login') }}">Login</a>
   @endif
 
   <script>

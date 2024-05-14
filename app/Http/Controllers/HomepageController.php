@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nft;
-use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
@@ -11,8 +10,8 @@ class HomepageController extends Controller
     {
         return view('homepage', [
             'nfts' => Nft::with('originalOwner')
+                ->orderBy('original_owner_id')
                 ->get()
-                ->sortBy(fn (Nft $nft) => $nft->current_owner->name)
         ]);
     }
 }

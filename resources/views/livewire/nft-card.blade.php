@@ -1,5 +1,5 @@
 <div class="text-sm relative h-72">
-  @if (auth()->user()->canBuy($nft))
+  @if (auth()->user()?->canBuy($nft))
     <form method="POST" action="{{ route('payment.show_transaction_details_for_user_confirmation') }}">
       @csrf
       <input type='hidden' name='currency' value='NGN' />

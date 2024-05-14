@@ -16,9 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', LoginController::class)->name('login');
-Route::get('/logout', LogoutController::class)->name('logout');
-
 Route::get('/', HomepageController::class)
-    ->middleware('auth')
     ->name('homepage');

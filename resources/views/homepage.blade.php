@@ -30,8 +30,12 @@
 
   <livewire:user-data-card />
 
+
   <div class="bg-white">
-    <div class="mx-auto max-w-7xl overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div class="text-gray-800 mt-5 mb-20 text-3xl">
+          NFT for <span class="bg-gray-300 rounded-md py-1 px-3">Domains</span>
+        </div>
       <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-8">
 
         @foreach ($nfts as $nft)

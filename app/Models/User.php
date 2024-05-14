@@ -2,19 +2,17 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
+use Filament\Panel;
 use Illuminate\Notifications\Notifiable;
 use Salfade\LoginTracker\Models\LoginAttempt;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Salfade\LoginTracker\Traits\HasLoginAttempts;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
     use HasFactory;
     use Notifiable;
     use HasLoginAttempts;
@@ -48,6 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
