@@ -1,9 +1,9 @@
-# A demo Laravel 9 NFT marketplace project
+# A demo Laravel NFT marketplace project
 
 > **Note** <br />
 > The Laravel 8 version is [👉🏼 here](https://github.com/damms005/nft-marketplace)
 
-I needed an excuse to have a [Laravel 9 Vite](https://laravel.com/docs/9.x/vite#main-content) project that has event broadcasting via real-time updates through [Laravel Echo](https://laravel.com/docs/9.x/broadcasting#client-side-installation) with simple basic (custom) turn-based authentication. It is powered by [Laravel Websocket](https://beyondco.de/docs/laravel-websockets) and [Livewire](https://laravel-livewire.com/docs). I also wanted to have a sample app that implements my [Laravel Multipay payments package](https://github.com/damms005/laravel-multipay).
+I needed an excuse to have a [Laravel Vite](https://laravel.com/docs/10.x/vite#main-content) project that has event broadcasting via real-time updates through [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation) with simple basic (custom) turn-based authentication. It is powered by [Laravel Websocket](https://beyondco.de/docs/laravel-websockets) and [Livewire](https://laravel-livewire.com/docs). I also wanted to have a sample app that implements my [Laravel Multipay payments package](https://github.com/damms005/laravel-multipay).
 
 So why not? 😜
 
